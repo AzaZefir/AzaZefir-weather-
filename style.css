@@ -8,7 +8,7 @@ body {
     height: auto;
     background-image: url(..//weather/img/forest_mountains_sunset_cool_weather_minimalism.jpg);
     background-size: 100%;
-    color: beige;
+    color: rgb(255, 255, 255);
 
 }
 
@@ -72,8 +72,20 @@ h1 {
     grid-template-columns: repeat(8, 150px);
     margin-top: 30px;
     justify-content: space-around;
+    gap: 10px;
 }
-
+.container1 > div{
+  background-color: rgb(67 84 188 / 45%);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 2px 0  rgb(95, 79, 115),
+  6px 6px 4px 0  rgb(13, 46, 84),
+  7px 7px 4px 0  rgb(16, 5, 97),
+  6px 6px 4px 0  rgb(203, 248, 3);
+}
+.container1 > div p:first-child{
+  margin-bottom: 10px;
+}
 .temp1 {
     display: flex;
     justify-content: center;

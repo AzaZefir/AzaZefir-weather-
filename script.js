@@ -13,10 +13,8 @@ let $sunrise = document.querySelector('#sunrise');
 let $container1 = document.querySelector('.container1');
 
 fetch(url)
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
+    .then(response => response.json())
+    .then(data =>{
         console.log(data);
         $city.textContent = data.timezone;
         $tempDegree.textContent = `${data.current.temp}°С`;
@@ -27,15 +25,13 @@ fetch(url)
         $visibility.textContent = `Дата ${data.current.visibility}`;
         $sunrise.textContent = `${data.current.sunrise}`;
         $description.textContent = `${data.current.weather[0].description}`;
-        let iconUrl = "https://openweathermap.org/img/wn/04d.png";
+        let iconUrl = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
         $tempImage.setAttribute('src', iconUrl);
-
-
 
         let i = 0
         data.daily.forEach(function (element) {
 
-            var days = [
+            let days = [
                 'Воскресенье',
                 'Понедельник',
                 'Вторник',
@@ -51,10 +47,10 @@ fetch(url)
                 'Пятница',
                 'Суббота'
             ];
-            var d = new Date();
-            var n = d.getDay();
+            let d = new Date();
+            let n = d.getDay();
             $container1.insertAdjacentHTML('beforeend', `
-        <div>    
+        <div>
         <p id="day">${days[n+i]}</p>
             <p>днем ${element.temp.day}С°</p>
             <p>вечером ${element.temp.eve}С°</p>
@@ -65,3 +61,9 @@ fetch(url)
             i++
         })
     })
+    // let key = '8a4459ad8b0ee1a02b8203a818310024';
+    // let url = `https://api.openweathermap.org/data/2.5/onecall?lat=42.87&lon=74.59&exclude=minutely&lang=ru&units=metric&appid=${key}`;
+    
+    // fetch(url)
+    // .then(res=> res.json())
+    // .then(data=> console.log(data))
