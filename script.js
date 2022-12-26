@@ -27,7 +27,7 @@ fetch(url)
         $visibility.textContent = `Дата ${data.current.visibility}`;
         $sunrise.textContent = `${data.current.sunrise}`;
         $description.textContent = `${data.current.weather[0].description}`;
-        let iconUrl = "https://openweathermap.org/img/wn/04d.png";
+        let iconUrl = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
         $tempImage.setAttribute('src', iconUrl);
 
 
@@ -35,7 +35,7 @@ fetch(url)
         let i = 0
         data.daily.forEach(function (element) {
 
-            var days = [
+            let days = [
                 'Воскресенье',
                 'Понедельник',
                 'Вторник',
@@ -51,8 +51,8 @@ fetch(url)
                 'Пятница',
                 'Суббота'
             ];
-            var d = new Date();
-            var n = d.getDay();
+            let d = new Date();
+            let n = d.getDay();
             $container1.insertAdjacentHTML('beforeend', `
         <div>    
         <p id="day">${days[n+i]}</p>
