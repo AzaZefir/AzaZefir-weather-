@@ -38,10 +38,11 @@ body {
     
 }
 .container1 {
-    width: 50%;
     margin: 40px auto;
     text-align: center;
-    
+    width: 90%;
+    grid-template-columns: repeat(8, 150px);
+    justify-content: space-around;
 }
 
 .d-grid {
@@ -65,13 +66,6 @@ h1 {
 #description{
     font-weight: bold;
     color: black;
-}
-
-.container1 {
-    width: 90%;
-    grid-template-columns: repeat(8, 150px);
-    margin-top: 30px;
-    justify-content: space-around;
 }
 
 .temp1 {
